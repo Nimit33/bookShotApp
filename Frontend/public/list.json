@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Atomic Habit",
+        "title": "Self Help",
+        "price": 0,
+        "category": "Free",
+        "image": "/atomichabit.webp"
+    },
+    {
+        "id": 2,
+        "name": "Deep Work",
+        "title": "Self Help",
+        "price": 0,
+        "category": "Free",
+        "image": "/atomichabit.webp"
+    },
+    {
+        "id": 3,
+        "name": "how to talk to anyone",
+        "title": "Communication",
+        "price": 0,
+        "category": "Free",
+        "image": "/atomichabit.webp"
+    },
+    {
+        "id": 4,
+        "name": "12 Rules For Life",
+        "title": "Life",
+        "price": 0,
+        "category": "Free",
+        "image": "/atomichabit.webp"
+    },
+    {
+        "id": 5,
+        "name": "Don't belive everything you think",
+        "title": "ajskda;sdlfja auds;dfajdf ;askdf",
+        "price": 0,
+        "category": "Free",
+        "image": "/atomichabit.webp"
+    },
+    {
+        "id": 6,
+        "name": "osho's meditation",
+        "title": "ajskda;sdlfja auds;dfajdf ;askdf",
+        "price": 0,
+        "category": "Free",
+        "image": "/atomichabit.webp"
+    },
+    {
+        "id": 7,
+        "name": "Power Of Now",
+        "title": "ajskda;sdlfja auds;dfajdf ;askdf",
+        "price": 0,
+        "category": "Free",
+        "image": "/atomichabit.webp"
+    },
+    {
+        "id": 8,
+        "name": "Monk Who Sold His Ferrari",
+        "title": "ajskda;sdlfja auds;dfajdf ;askdf",
+        "price": 0,
+        "category": "Free",
+        "image": "/atomichabit.webp"
+    }
+]
