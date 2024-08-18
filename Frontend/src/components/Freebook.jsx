@@ -1,15 +1,35 @@
-import React from 'react'
-import list from "../../public/list.json"
+import React, { useEffect, useState } from 'react'
+// import list from "../../public/list.json"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import axios from "axios";
 
 import Slider from "react-slick";
 import Cards from './Cards';
 
 function Freebook() {
-    const filterData = list.filter((data) => data.category === "Free");
+    const [book, setBook] = useState([])
+    useEffect(() => {
+        const getBook = async () => {
+            // async await esliye use krte hai taaki response aane tk ka wait kr rhe woh
+            try {
+                const res = await axios.get("http://localhost:4001/book")
+                const data = res.data.filter((data) => data.category === "Free")
+                console.log(data) >>>
+                    setBook(data);
+
+            } catch (error) {
+                console.log(error)
+
+            }
+
+        }
+        getBook();
+
+    }, [])
+
     // free books joh hai unko alag krliya
-    console.log(filterData);
+    // console.log(filterData);
 
     var settings = {
         dots: true,
@@ -63,7 +83,7 @@ function Freebook() {
                 </div>
                 <div>
                     <Slider {...settings}>
-                        {filterData.map((item) => (
+                        {book.map((item) => (
                             <Cards item={item} key={item.id} />
                         ))}
                         {/* boiler code hatake slider ke har ek item ko cards ke saath map krdiya humne, then using react props*/}

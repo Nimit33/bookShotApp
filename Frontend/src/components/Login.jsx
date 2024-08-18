@@ -1,11 +1,50 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form"
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 
 function Login() {
     const { register, handleSubmit, formState: { errors }, } = useForm();
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = async (data) => {
+        const userInfo = {
+            email: data.email,
+            password: data.password,
+        }
+        await axios.post("http://localhost:4001/user/login", userInfo)
+            // postmen mein ki api mein data bhejdiya url mein yeh information store userinfo variable ke help se  krwadi
+            // axios javascript ke help se api use krne mein help krta hai
+            .then((res) => {
+                // res joh hai woh response hai joh api bhejegi agr jb woh data successfully store hojayega toh
+                console.log(res.data)
+                if (res.data) {
+                    // alert("Login Successfully")
+                    toast.success('Login Successfully');
+                    // toast host se liya taaki acha ui banke aaye frontend pe messasge ke liye
+                    // agr data shi hoga toh signup successful krdenge frontend pe
+                    document.getElementById("my_modal_3").close();
+                    // login wali window close ho jaye use koye hai 
+                    setTimeout(() => {
+
+                        window.location.reload();
+                        // page reload ho jaye
+                        localStorage.setItem("Users", JSON.stringify(res.data.user));
+                        //agr signup hogaya toh browser ke local storage mein es data ko store kr lenge
+                    }, 1000)
+                }
+
+
+
+            }).catch((err) => {
+                if (err.response) {
+                    console.log(err);
+                    // alert("Error: " + err.response.data.message);
+                    toast.error("Error: " + err.response.data.message);
+                    setTimeout(() => { }, 2000);
+                }
+            })
+    }
     return (
 
         <div><dialog id="my_modal_3" className="modal">
